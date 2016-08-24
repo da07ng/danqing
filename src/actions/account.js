@@ -1,12 +1,23 @@
 import { createAction } from 'redux-actions';
 
-import { AUTH_USER, UNAUTH_USER, SIGN_IN_SUCCESS, SIGN_IN_FAILURE, SIGN_UP_SUCCESS, SIGN_UP_FAILURE, SIGN_OUT_SUCCESS, SIGN_OUT_FAILURE } from '../constants/ActionTypes';
+import {
+  AUTH_USER,
+  UNAUTH_USER,
+  SIGNIN_SUCCESS,
+  SIGNIN_FAILURE,
+  SIGNUP_SUCCESS,
+  SIGNUP_FAILURE,
+  SIGNOUT_SUCCESS,
+  SIGNOUT_FAILURE
+} from '../constants/ActionTypes';
 
 // export const signin = createAction(SIGN_IN);
 // export const signout = createAction(SIGN_OUT);
 
 export function signin() {
-  localStorage.setItem('user', JSON.stringify({username: 'gaudj'}));
+  localStorage.setItem('user', JSON.stringify({
+    username: 'danqing'
+  }));
 
   return {
     type: AUTH_USER

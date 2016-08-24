@@ -1,4 +1,5 @@
 import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 
 import { logger } from '../middleware';
 import rootReducer from '../reducers';
@@ -8,6 +9,7 @@ const configureStore = (initialState) => {
     ? window.devToolsExtension()(createStore) : createStore;
 
   const createStoreWithMiddleware = applyMiddleware(
+    thunk,
     logger
   )(create);
 

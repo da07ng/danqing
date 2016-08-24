@@ -17,7 +17,7 @@ class App extends Component {
 
     return (
       <div>
-        <Header account={account} actions={actions}/>
+        <Header account={account} />
         <div id='main'>
           <div className="container">
             {children}
