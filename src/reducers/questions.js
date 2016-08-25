@@ -1,17 +1,27 @@
 import { handleActions } from 'redux-actions';
 
+import {
+  FETCH_QUESTIONS_REQUEST,
+  FETCH_QUESTIONS_SUCCESS,
+  FETCH_QUESTIONS_FAILURE
+} from '../constants/ActionTypes';
+
 const initialState = [{
-  text: 'Use Redux',
-  completed: false,
-  id: 0
+  loading: false,
+  items: [],
+  error: null
 }];
 
 export default handleActions({
-  'add question' (state, action) {
-    return [{
-      id: state.reduce((maxId, todo) => Math.max(todo.id, maxId), -1) + 1,
-      completed: false,
-      text: action.payload
-    }, ...state];
+  FETCH_QUESTIONS_REQUEST: (state, action) => {
+    return { ...state, loading: true, items: []};
+  },
+
+  FETCH_QUESTIONS_SUCCESS: (state, action) => {
+    return { ...state, loading: false, items: action.payload.data};
+  },
+
+  FETCH_QUESTIONS_FAILURE: (state, action) => {
+    return { ...state, loading: false, items: [], error: error};
   }
 }, initialState);

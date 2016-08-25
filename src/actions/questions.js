@@ -2,19 +2,27 @@ import { createAction } from 'redux-actions';
 import 'isomorphic-fetch';
 
 import {
-  QUESTIONS_REQUEST,
-  QUESTIONS_SUCCESS,
-  QUESTIONS_FAILURE
+  FETCH_QUESTIONS_REQUEST,
+  FETCH_QUESTIONS_SUCCESS,
+  FETCH_QUESTIONS_FAILURE
 } from '../constants/ActionTypes';
+
+const fetchQuestionsRequest = createAction(FETCH_QUESTIONS_REQUEST);
+const fetchQuestionsSuccess = createAction(FETCH_QUESTIONS_SUCCESS);
+const fetchQuestionsFailure = createAction(FETCH_QUESTIONS_FAILURE);
 
 export function fetchQuestions() {
   return dispatch => {
+    dispatch(fetchQuestionsRequest);
+
     return fetch('/api/questions')
-      .then(response => response.json())
-      .then(data => dispatch(questionsSuccess(data)));
+      .then(response => {
+        if (response.ok) {
+          response.json().then(json => dispatch(fetchQuestionsSuccess(json)));
+        }
+      })
+      .catch(error => {
+        dispatch(fetchQuestionsFailure(error.message);
+      });
   }
 }
-
-const questionsRequest = createAction(QUESTIONS_REQUEST);
-const questionsSuccess = createAction(QUESTIONS_SUCCESS);
-const questionsFailure = createAction(QUESTIONS_FAILURE);
