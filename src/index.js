@@ -8,7 +8,6 @@ import { Provider } from 'react-redux';
 import './assets/stylesheets/global.scss';
 
 import configureStore from './store';
-import { AUTH_USER } from './constants/ActionTypes';
 
 import App from './containers/App';
 import Home from './containers/Home';
@@ -19,12 +18,6 @@ import Question from './containers/Question';
 
 const store = configureStore();
 const history = syncHistoryWithStore(browserHistory, store);
-
-const user = JSON.parse(localStorage.getItem('user'));
-
-if (user && user.username) {
-  store.dispatch({ type: AUTH_USER });
-}
 
 ReactDom.render(
   <Provider store={store}>

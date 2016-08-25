@@ -12,13 +12,20 @@ class App extends Component {
     super(props);
   }
 
+  componentWillMount() {
+    const token = localStorage.getItem('token');
+    if (token) {
+      this.props.actions.signinFromToken(token);
+    }
+  }
+
   render() {
     const { account, actions, children } = this.props;
 
     return (
       <div>
         <Header account={account} />
-        <div id='main'>
+        <div id="main">
           <div className="container">
             {children}
           </div>

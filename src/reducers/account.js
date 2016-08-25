@@ -14,19 +14,12 @@ import {
 const initialState = {
   loggedIn: false,
   user: null,
-  errorMessage: null
+  error: null
 };
 
 export default handleActions({
   AUTH_USER: (state, action) => {
-    return {
-      loggedIn: true,
-      user: {
-        id: 0,
-        username: 'danqing'
-      },
-      errorMessage: null
-    };
+    return { ...state, loggedIn: true, user: action.payload.user};
   },
 
   UNAUTH_USER: (state, action) => {
