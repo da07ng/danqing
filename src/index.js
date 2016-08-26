@@ -11,7 +11,7 @@ import configureStore from './store';
 
 import App from './containers/App';
 import Home from './containers/Home';
-import Signup from './containers/Signup';
+import Register from './containers/Register';
 import Signin from './containers/Signin';
 import Signout from './containers/Signout';
 import Question from './containers/Question';
@@ -24,7 +24,7 @@ ReactDom.render(
     <Router history={history}>
       <Route path="/" component={App}>
         <IndexRoute component={Home}/>
-        <Route path="/signup" component={Signup}></Route>
+        <Route path="/signup" component={Register}></Route>
         <Route path="/signin" component={Signin}></Route>
         <Route path="/signout" component={Signout}></Route>
         <Route path="/q/:id" component={Question}></Route>

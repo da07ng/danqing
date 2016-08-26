@@ -3,10 +3,10 @@ import { handleActions } from 'redux-actions';
 import {
   AUTH_USER,
   UNAUTH_USER,
+  REGISTER_SUCCESS,
+  REGISTER_FAILURE,
   SIGNIN_SUCCESS,
   SIGNIN_FAILURE,
-  SIGNUP_SUCCESS,
-  SIGNUP_FAILURE,
   SIGNOUT_SUCCESS,
   SIGNOUT_FAILURE
 } from '../constants/ActionTypes';

@@ -7,8 +7,16 @@ config.entry.app.unshift('webpack-dev-server/client?http://localhost:3000', 'web
 config.plugins.push(new webpack.HotModuleReplacementPlugin());
 
 var proxy = {
-  '/api/*': 'http://localhost:5000'
+  '/api/*': 'http://localhost:5000',
+  '/account/*': 'http://localhost:5000'
 };
+
+// var proxy = {
+//   '/api/*': {
+//     target: 'http://python-china.org',
+//     host: 'python-china.org'
+//   }
+// };
 
 var server = new WebpackDevServer(webpack(config), {
   publicPath: config.output.publicPath,
