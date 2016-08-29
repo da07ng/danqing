@@ -11,13 +11,6 @@ var proxy = {
   '/account/*': 'http://localhost:5000'
 };
 
-// var proxy = {
-//   '/api/*': {
-//     target: 'http://python-china.org',
-//     host: 'python-china.org'
-//   }
-// };
-
 var server = new WebpackDevServer(webpack(config), {
   publicPath: config.output.publicPath,
   hot: true,
