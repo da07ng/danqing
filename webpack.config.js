@@ -16,7 +16,7 @@ module.exports = {
       'react-router-redux',
       'redux',
       'redux-actions',
-      './src/assets/javascripts/bootstrap.min.js'
+      './src/assets/scripts/bootstrap.min.js'
     ]
   },
   output: {
